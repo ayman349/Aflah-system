@@ -1,0 +1,153 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  body { @apply bg-slate-50 text-slate-800 antialiased; }
+  h1, h2, h3 { @apply tracking-tight; }
+  :focus-visible { @apply outline-2 outline-offset-2 outline-brand; }
+}
+@layer components {
+  .wrap { @apply mx-auto w-full max-w-6xl px-4 sm:px-6; }
+  .btn { @apply inline-flex items-center justify-center gap-2 rounded-lg px-5 py-2.5 text-sm font-semibold transition duration-200 disabled:cursor-not-allowed disabled:opacity-60; }
+  .btn-primary { @apply btn bg-brand text-navy-900 shadow-sm hover:bg-brand-dark hover:shadow-md active:scale-[.98]; }
+  .btn-dark { @apply btn bg-navy-800 text-white hover:bg-navy-700; }
+  .btn-outline { @apply btn border border-slate-300 bg-white text-slate-700 hover:border-brand hover:text-navy-800; }
+  .btn-ghost-light { @apply btn border border-white/30 text-white hover:bg-white/10; }
+  .btn-danger { @apply btn border border-red-200 bg-white text-red-600 hover:bg-red-50; }
+  .btn-sm { @apply px-3 py-1.5 text-xs; }
+  .inp { @apply w-full rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-sm text-slate-800 shadow-sm placeholder:text-slate-400 focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/30; }
+  .lbl { @apply mb-1 block text-sm font-medium text-slate-700; }
+  .err { @apply mt-1 text-xs text-red-600; }
+  .card { @apply rounded-xl border border-slate-200 bg-white shadow-sm; }
+  .card-hover { @apply card transition duration-300 hover:-translate-y-1 hover:border-brand/50 hover:shadow-lg; }
+  .badge { @apply inline-flex items-center rounded-full bg-brand/15 px-2.5 py-0.5 text-xs font-semibold text-amber-800; }
+  .badge-green { @apply inline-flex items-center rounded-full bg-emerald-100 px-2.5 py-0.5 text-xs font-semibold text-emerald-800; }
+  .badge-gray { @apply inline-flex items-center rounded-full bg-slate-200 px-2.5 py-0.5 text-xs font-semibold text-slate-700; }
+  .badge-red { @apply inline-flex items-center rounded-full bg-red-100 px-2.5 py-0.5 text-xs font-semibold text-red-700; }
+  .alert-err { @apply rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700; }
+  .alert-ok { @apply rounded-lg border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm text-emerald-800; }
+  .th { @apply px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide text-slate-500; }
+  .td { @apply px-4 py-3 text-sm; }
+  .navlink { @apply rounded-md px-3 py-2 text-sm font-medium text-slate-200 transition hover:bg-white/10 hover:text-white; }
+  .eyebrow { @apply text-xs font-bold uppercase tracking-[.18em] text-brand-dark; }
+  .circuit { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cg fill='none' stroke='%23ff9f1c' stroke-opacity='.14' stroke-width='1.5'%3E%3Cpath d='M0 30h40l10 10h30M60 0v25l15 15v40M0 90h25l15-15h35M120 60H95l-10 10v50'/%3E%3Ccircle cx='40' cy='30' r='3'/%3E%3Ccircle cx='80' cy='40' r='3'/%3E%3Ccircle cx='25' cy='90' r='3'/%3E%3Ccircle cx='75' cy='75' r='3'/%3E%3C/g%3E%3C/svg%3E"); }
+  .fade-up { animation: fadeUp .7s ease both; }
+  .lesson-body { @apply text-[17px] leading-8 text-slate-700; }
+  .lesson-body h2 { @apply mb-3 mt-8 text-2xl font-bold text-navy-800; }
+  .lesson-body h3 { @apply mb-2 mt-6 text-xl font-semibold text-navy-800; }
+  .lesson-body p { @apply my-4; }
+  .lesson-body ul { @apply my-4 list-disc pl-6; }
+  .lesson-body ol { @apply my-4 list-decimal pl-6; }
+  .lesson-body li { @apply my-1; }
+  .lesson-body blockquote { @apply my-5 border-l-4 border-brand bg-brand/10 px-4 py-3 italic; }
+  .lesson-body code { @apply rounded bg-slate-100 px-1.5 py-0.5 font-mono text-[15px] text-navy-800; }
+  .lesson-body a { @apply text-navy-600 underline hover:text-brand-dark; }
+}
+@keyframes fadeUp { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }
+
+
+/* Aflax dark/light theme */
+html.dark body {
+  background-color: #0b1220;
+  color: #e5e7eb;
+}
+html.dark .bg-white { background-color: #172235 !important; }
+html.dark .bg-slate-50 { background-color: #0b1220 !important; }
+html.dark .bg-slate-100 { background-color: #1e293b !important; }
+html.dark .bg-slate-200 { background-color: #334155 !important; }
+html.dark .text-slate-900,
+html.dark .text-slate-800,
+html.dark .text-slate-700 { color: #e5e7eb !important; }
+html.dark .text-slate-600,
+html.dark .text-slate-500,
+html.dark .text-slate-400 { color: #aab7c8 !important; }
+html.dark .text-navy-900,
+html.dark .text-navy-800,
+html.dark .text-navy-700,
+html.dark .text-navy-600 { color: #e5e7eb !important; }
+html.dark .border-slate-100,
+html.dark .border-slate-200,
+html.dark .border-slate-300 { border-color: #334155 !important; }
+html.dark .card { background-color: #172235 !important; border-color: #334155 !important; }
+html.dark .inp,
+html.dark input,
+html.dark select,
+html.dark textarea {
+  color: #e5e7eb;
+  background-color: #172235;
+  border-color: #475569;
+}
+html.dark input::placeholder,
+html.dark textarea::placeholder { color: #94a3b8; }
+html.dark .lesson-body { color: #cbd5e1 !important; }
+html.dark .lesson-body h2,
+html.dark .lesson-body h3,
+html.dark .lesson-body a { color: #e5e7eb !important; }
+html.dark .lesson-body code { background-color: #334155 !important; color: #f1f5f9 !important; }
+html.dark .badge-gray { background-color: #334155 !important; color: #e2e8f0 !important; }
+html.dark .btn-outline { background-color: #172235 !important; color: #e5e7eb !important; border-color: #475569 !important; }
+html.dark .btn-danger { background-color: #172235 !important; border-color: #7f1d1d !important; }
+html.dark .shadow-sm,
+html.dark .shadow-md,
+html.dark .shadow-lg { --tw-shadow-color: rgb(0 0 0 / 0.25); }
+
+
+/* ------------------------------------------------------------------
+   Responsive polish: phones, tablets, laptops and wide desktop screens
+   ------------------------------------------------------------------ */
+@layer base {
+  *, *::before, *::after { box-sizing: border-box; }
+  html, body { width: 100%; max-width: 100%; }
+  body { overflow-x: hidden; }
+  img, video, iframe, canvas, svg { max-width: 100%; }
+  img, video { height: auto; }
+  button, input, select, textarea { font: inherit; }
+  button, a, summary { -webkit-tap-highlight-color: transparent; }
+  a, button { touch-action: manipulation; }
+  pre, code { overflow-wrap: anywhere; }
+}
+
+@layer components {
+  .wrap { min-width: 0; }
+  .card, .card-hover { min-width: 0; }
+  .inp { min-width: 0; min-height: 44px; }
+  .btn { min-height: 42px; }
+  .lesson-body { overflow-wrap: anywhere; }
+  .lesson-body img, .lesson-body video, .lesson-body iframe {
+    display: block; max-width: 100%; margin-inline: auto;
+  }
+  .lesson-body iframe { width: 100%; aspect-ratio: 16 / 9; height: auto; }
+  .table-scroll, .overflow-x-auto { max-width: 100%; -webkit-overflow-scrolling: touch; }
+  table { max-width: 100%; }
+}
+
+@media (max-width: 767px) {
+  .wrap { padding-left: 1rem; padding-right: 1rem; }
+  h1 { overflow-wrap: anywhere; }
+  .btn { white-space: normal; text-align: center; }
+  .card, .card-hover { border-radius: .8rem; }
+  .lesson-body { font-size: 1rem; line-height: 1.75; }
+  .lesson-body h2 { font-size: 1.35rem; }
+  .lesson-body h3 { font-size: 1.15rem; }
+  /* Keep data tables usable without squeezing their columns into unreadable text. */
+  table { display: block; width: 100%; overflow-x: auto; white-space: nowrap; }
+  th, td { max-width: 18rem; }
+  input, select, textarea { max-width: 100%; }
+  details[open] > div { max-width: calc(100vw - 2rem); max-height: calc(100dvh - 6rem); overflow-y: auto; }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .wrap { padding-left: 1.5rem; padding-right: 1.5rem; }
+}
+
+@media (min-width: 1600px) {
+  .wrap { max-width: 80rem; }
+}
+
+/* Respect device safe areas and reduce accidental horizontal scrolling. */
+@supports (padding: max(0px)) {
+  .wrap { padding-left: max(1rem, env(safe-area-inset-left)); padding-right: max(1rem, env(safe-area-inset-right)); }
+}
